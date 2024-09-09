@@ -1,6 +1,3 @@
-Here's a polished and professional README.md file for your project. This version includes a project overview, installation instructions, usage, contribution guidelines, and licensing information, all formatted with Markdown styling.
-
-```markdown
 # PDF Translator
 
 ## Overview
@@ -105,11 +102,7 @@ Please ensure that your contributions adhere to the project's coding standards a
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
-
 Feel free to reach out with any questions or feedback. Happy translating!
-
-```
 
 ### Key Points in the README.md
 
