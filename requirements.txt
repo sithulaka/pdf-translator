@@ -1,2 +1,3 @@
-PyMuPDF
-deep-translator
+fitz==1.0.0
+deep-translator==1.7.0
+reportlab==3.6.12
