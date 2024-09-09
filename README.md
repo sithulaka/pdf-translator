@@ -24,8 +24,8 @@ PDF Translator is a Python-based tool designed to extract text from PDF document
 ### Clone the Repository
 
 ```bash
-git clone <repository_url>
-cd <repository_directory>
+git clone https://github.com/sithulaka/pdf-translator.git
+cd pdf-translator
 ```
 
 ### Set Up a Virtual Environment
@@ -99,19 +99,16 @@ We welcome contributions to improve this project. To contribute:
 Please ensure that your contributions adhere to the project's coding standards and include tests where applicable.
 
 ## License
-
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Feel free to reach out with any questions or feedback. Happy translating!
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request with your improvements or bug fixes.
 
-### Key Points in the README.md
-
-1. **Overview**: Provides a concise description of the project and its features.
-2. **Table of Contents**: Helps users quickly navigate the document.
-3. **Installation**: Detailed steps for setting up the project, including cloning, setting up a virtual environment, and installing dependencies.
-4. **Usage**: Instructions on how to use the script, including an example.
-5. **Folder Structure**: Explains the organization of the project files and folders.
-6. **Contributing**: Guidelines for contributing to the project.
-7. **License**: Information about the licensing of the project.
-
-This README.md provides a comprehensive and professional introduction to your project, making it easy for others to understand, use, and contribute.
+## Connect with me
+<p align="left">
+<a href="https://linkedin.com/in/sithulaka" target="blank"><img align="center" src="https://github.com/sithulaka/sithulaka/blob/main/image/icon/linked-in-alt.svg" alt="sithulaka" height="30" width="40" /></a>
+<a href="https://twitter.com/sithulaka" target="blank"><img align="center" src="https://github.com/sithulaka/sithulaka/blob/main/image/icon/twitter.svg" alt="sithulaka" height="30" width="40" /></a>
+<a href="https://fb.com/senithu.sithulaka.7" target="blank"><img align="center" src="https://github.com/sithulaka/sithulaka/blob/main/image/icon/facebook.svg" alt="sithulaka" height="30" width="40" /></a>
+<a href="https://instagram.com/_sithulaka_" target="blank"><img align="center" src="https://github.com/sithulaka/sithulaka/blob/main/image/icon/instagram.svg" alt="sithulaka" height="30" width="40" /></a>
+<!-- <a href="https://discord.gg/ugdvth5b6H" target="blank"><img align="center" src="https://github.com/sithulaka/sithulaka/blob/main/image/icon/discord.svg" alt="sithulaka" height="30" width="40" /></a> -->
+</p><br>
