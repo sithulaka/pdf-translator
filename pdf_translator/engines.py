@@ -1,12 +1,13 @@
 import time
 import logging
-from deep_translator import GoogleTranslator
+from deep_translator import GoogleTranslator, MyMemoryTranslator
 
 logger = logging.getLogger(__name__)
 
 _translator_cache = {}
 CHUNK_SIZE = 4500
 MAX_RETRIES = 3
+SUPPORTED_ENGINES = ['google', 'mymemory']
 
 
 def create_engine(engine_name='google', target_lang='si', api_key=None):
@@ -14,8 +15,10 @@ def create_engine(engine_name='google', target_lang='si', api_key=None):
     if cache_key not in _translator_cache:
         if engine_name == 'google':
             _translator_cache[cache_key] = GoogleTranslator(source='auto', target=target_lang)
+        elif engine_name == 'mymemory':
+            _translator_cache[cache_key] = MyMemoryTranslator(source='auto', target=target_lang)
         else:
-            raise ValueError(f"Unknown engine: {engine_name}. Available: google")
+            raise ValueError(f"Unknown engine: '{engine_name}'. Available: {', '.join(SUPPORTED_ENGINES)}")
     return _translator_cache[cache_key]
 
 
