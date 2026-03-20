@@ -40,7 +40,7 @@ def setup_logging(verbose=False, quiet=False, log_file=None):
 
 
 def merge_args_with_config(args, config):
-    base_dir = os.path.dirname(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     settings = dict(config)
     if args.input is not None: settings['input_folder'] = args.input
     if args.output is not None: settings['output_folder'] = args.output

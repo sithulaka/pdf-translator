@@ -40,6 +40,7 @@ def save_as_pdf(file_path, pages_content, translated_texts):
 
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.set_margins(10, 10, 10)
     font_name = 'Helvetica'
 
     for i, (original_text, blocks, table_data) in enumerate(pages_content):
@@ -49,9 +50,13 @@ def save_as_pdf(file_path, pages_content, translated_texts):
         pdf.cell(0, 10, f"--- Page {i + 1} ---", new_x="LMARGIN", new_y="NEXT")
         pdf.ln(5)
         pdf.set_font(font_name, size=10)
+        available_width = pdf.w - pdf.l_margin - pdf.r_margin
         for line in translated_text.split('\n'):
-            # fpdf2 multi_cell handles long lines
-            pdf.multi_cell(0, 6, line.encode('latin-1', 'replace').decode('latin-1'))
+            safe_line = line.encode('latin-1', 'replace').decode('latin-1')
+            if safe_line.strip():
+                pdf.multi_cell(available_width, 6, safe_line)
+            else:
+                pdf.ln(6)
 
     pdf.output(file_path)
     logger.info("Saved PDF output: %s", file_path)
