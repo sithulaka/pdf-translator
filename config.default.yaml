@@ -1,0 +1,7 @@
+target_language: si
+input_folder: input_pdfs
+output_folder: output_texts
+output_format: txt
+engine: google
+max_workers: 3
+bilingual: false

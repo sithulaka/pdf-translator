@@ -1,2 +1,7 @@
 pymupdf==1.23.6
 deep-translator==1.7.0
+pytesseract>=0.3.10
+Pillow>=10.0.0
+fpdf2>=2.7.0
+tqdm>=4.66.0
+pyyaml>=6.0
