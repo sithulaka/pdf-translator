@@ -44,6 +44,11 @@ class TestIntegration(unittest.TestCase):
         self.assertIn("--- Page 1 ---", content)
         self.assertTrue(len(content) > 20)
 
+    def test_cli_with_lang_flag(self):
+        from pdf_translator.cli import parse_args
+        args = parse_args(['--lang', 'ta', '--input', self.input_dir, '--output', self.output_dir])
+        self.assertEqual(args.lang, 'ta')
+
     def test_process_pdfs_function(self):
         from main import process_pdfs
         from pdf_translator.config import DEFAULTS
@@ -54,6 +59,24 @@ class TestIntegration(unittest.TestCase):
         process_pdfs(settings)
         output_file = os.path.join(self.output_dir, 'test.txt')
         self.assertTrue(os.path.exists(output_file))
+
+    def test_skip_already_translated(self):
+        from main import process_pdfs
+        from pdf_translator.config import DEFAULTS
+        settings = dict(DEFAULTS)
+        settings['input_folder'] = self.input_dir
+        settings['output_folder'] = self.output_dir
+        settings['force'] = True
+        process_pdfs(settings)
+        output_file = os.path.join(self.output_dir, 'test.txt')
+        self.assertTrue(os.path.exists(output_file))
+        first_mtime = os.path.getmtime(output_file)
+        import time
+        time.sleep(0.1)
+        settings['force'] = False
+        process_pdfs(settings)
+        second_mtime = os.path.getmtime(output_file)
+        self.assertEqual(first_mtime, second_mtime)
 
 
 if __name__ == "__main__":

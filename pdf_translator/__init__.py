@@ -1,4 +1,5 @@
 from pdf_translator.engines import translate_text
 from pdf_translator.extractor import extract_pdf_content
-from pdf_translator.writer import save_as_text
-from pdf_translator.tables import identify_tables
+from pdf_translator.writer import save_as_text, save_as_pdf, save_output
+from pdf_translator.tables import identify_tables, identify_tables_from_page, extract_tables_from_page
+from pdf_translator.cache import CachedTranslator
