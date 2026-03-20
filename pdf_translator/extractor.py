@@ -1,6 +1,13 @@
 import fitz
 import logging
 
+try:
+    import pytesseract
+    from PIL import Image
+    OCR_AVAILABLE = True
+except ImportError:
+    OCR_AVAILABLE = False
+
 logger = logging.getLogger(__name__)
 
 
@@ -20,6 +27,16 @@ def extract_pdf_content(pdf_path, password=None, page_range=None):
                 continue
             page = doc.load_page(page_num)
             text = page.get_text("text")
+            # OCR fallback for image-only pages
+            if not text.strip() and OCR_AVAILABLE:
+                logger.info("  Page %d has no text — running OCR...", page_num + 1)
+                try:
+                    pix = page.get_pixmap(dpi=300)
+                    img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+                    text = pytesseract.image_to_string(img)
+                except Exception as e:
+                    logger.warning("  OCR failed on page %d: %s", page_num + 1, e)
+                    text = ""
             blocks = page.get_text("dict")['blocks']
             table_data = extract_tables_from_page(page, blocks)
             pages.append((text, blocks, table_data))
